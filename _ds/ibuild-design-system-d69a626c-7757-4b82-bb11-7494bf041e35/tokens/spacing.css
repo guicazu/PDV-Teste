@@ -1,0 +1,21 @@
+:root{
+--space-1:4px;--space-2:8px;--space-3:12px;--space-4:16px;--space-5:20px;--space-6:24px;
+--space-7:28px;--space-8:32px;--space-9:36px;--space-10:40px;--space-12:48px;--space-14:56px;
+--space-16:60px;--space-20:80px;--space-24:100px;--space-28:120px;--space-32:140px;--space-40:160px;
+
+--section-y:120px;          /* padding vertical padrão de seção */
+--section-y-tight:80px;
+--content-width:1300px;
+--prose-width:520px;
+--side-padding:max(48px, calc((100vw - var(--content-width)) / 2));
+--gutter:32px;
+
+/* Corners are essentially square. 2px in app UI, 0 in marketing. */
+--radius-none:0px;
+--radius-app:2px;
+--radius-pill:999px;
+
+--hairline:1px; /* @kind spacing */
+--rule-accent:2px; /* @kind spacing */
+--rule-doc:8pt; /* @kind spacing */
+}

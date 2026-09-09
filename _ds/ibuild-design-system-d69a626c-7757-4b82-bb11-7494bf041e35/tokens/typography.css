@@ -1,0 +1,42 @@
+:root{
+--font-display:'Transducer','Segoe UI Semibold',system-ui,sans-serif;
+--font-body:'Transducer','Segoe UI',system-ui,sans-serif;
+--font-doc:'Segoe UI',system-ui,sans-serif;   /* documentos administrativos; Carlito é a substituta métrica no Word */
+--font-script:'Brittany Signature','Segoe Script',cursive; /* assinatura/slogan */
+--font-cond:'Transducer Cond','Transducer',sans-serif;
+
+--fw-hairline:100; /* @kind font */
+--fw-regular:400; /* @kind font */
+--fw-medium:500; /* @kind font */
+--fw-bold:700; /* @kind font */
+--fw-black:900; /* @kind font */
+
+/* Display / headline scale (fluid, as used on site) */
+--type-hero:clamp(2.7rem,5.2vw,3.9rem);
+--type-display:clamp(2.4rem,5vw,4rem);
+--type-h1:clamp(2rem,4vw,3.2rem);
+--type-h2:clamp(2rem,3.5vw,2.8rem);
+--type-h3:1.8rem;
+--type-h4:1.4rem;
+--type-quote:clamp(1.6rem,3.5vw,2.8rem);
+
+/* Text */
+--type-lead:1.25rem;
+--type-body:1rem;
+--type-body-sm:.9rem;
+--type-caption:.85rem;
+--type-micro:.75rem;
+--type-nano:.7rem;
+
+/* Eyebrow / label: uppercase, wide tracking — the brand's connective tissue */
+--eyebrow-size:.7rem;
+--eyebrow-track:4px; /* @kind spacing */
+--eyebrow-weight:500; /* @kind font */
+--track-title:2px; /* @kind spacing */
+--track-cta:3px; /* @kind spacing */
+
+--lh-tight:1.15; /* @kind font */
+--lh-heading:1.3; /* @kind font */
+--lh-body:1.7; /* @kind font */
+--lh-prose:1.85; /* @kind font */
+}

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/fonts.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/colors.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/typography.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/spacing.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/elevation.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/tokens/motion.css">
+<link rel="stylesheet" href="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/styles.css">
+<script src="_ds/ibuild-design-system-d69a626c-7757-4b82-bb11-7494bf041e35/_ds_bundle.js"></script>
+<style>
+  html { scroll-behavior: smooth; }
+  body { margin: 0; background: var(--surface-page); color: var(--text-body); font-family: var(--font-body); }
+  a { color: var(--link); text-decoration: none; }
+  a:hover { color: var(--ib-ink); }
+  @keyframes ibSpin { to { transform: rotate(360deg); } }
+</style>
+</helmet>
+
+<div style="background:var(--surface-page)">
+
+<nav style="position:sticky;top:0;z-index:40;background:rgba(26,26,26,.94);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,.07)">
+  <div style="max-width:1300px;margin:0 auto;padding:0 max(24px, (100vw - 1300px)/2);display:flex;align-items:center;gap:20px 28px;min-height:66px;padding-top:12px;padding-bottom:12px;flex-wrap:wrap">
+    <img src="assets/logo-branco.png" alt="iBUILD" style="height:17px;width:auto;flex:none">
+    <div style="display:flex;gap:10px 22px;flex-wrap:wrap;flex:1;min-width:0">
+      <a href="#pilares" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Pilares</a>
+      <a href="#escopo" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Escopo</a>
+      <a href="#kits" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Kits</a>
+      <a href="#cronograma" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Cronograma</a>
+      <a href="#investimento" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Investimento</a>
+      <a href="#duvidas" style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gray-light);white-space:nowrap">Dúvidas</a>
+    </div>
+    <div style="display:flex;align-items:center;gap:18px;flex:none">
+      <div style="text-align:right;line-height:1.15">
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray)">Configuração atual</div>
+        <div style="font-family:var(--font-display);font-weight:500;font-size:1rem;color:var(--ib-gold);font-variant-numeric:tabular-nums">{{ totalFmt }}</div>
+      </div>
+      <a href="#aceite" style="font-family:var(--font-body);font-size:.68rem;font-weight:500;letter-spacing:3px;text-transform:uppercase;padding:12px 20px;background:var(--ib-gold);color:var(--ib-ink);white-space:nowrap" style-hover="background:var(--ib-white)">Aceitar</a>
+    </div>
+  </div>
+</nav>
+
+<section id="capa" style="position:relative;background:var(--ib-ink);min-height:660px;display:flex;flex-wrap:wrap;align-items:stretch;scroll-margin-top:80px;overflow:hidden">
+  <div style="position:absolute;inset:0;z-index:0">
+    <img src="https://ibuildconstrutora.com.br/assets/imoveis/jundiai-sp-365m/capa.webp" alt="Residência entregue pela iBUILD em Jundiaí" style="width:100%;height:100%;object-fit:cover">
+  </div>
+  <div style="position:absolute;inset:0;z-index:1;pointer-events:none;background:var(--scrim-flat)"></div>
+  <img src="assets/selo.png" alt="" style="position:absolute;right:36px;bottom:36px;width:120px;opacity:.12;z-index:2;pointer-events:none;animation:ibSpin 60s linear infinite">
+
+  <div style="position:relative;z-index:3;width:300px;flex:none;background:var(--ib-off-white);padding:36px 28px;display:flex;flex-direction:column;gap:26px">
+    <img src="assets/logo-preto.png" alt="iBUILD Construtora" style="width:150px;height:auto">
+    <div style="display:flex;flex-direction:column;gap:18px;font-size:.8rem;line-height:1.5">
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:4px">Proposta nº</div>
+        <div style="font-family:var(--font-display);font-weight:500;color:var(--ib-ink)">{{ propostaNumero }}</div>
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:4px">Unidade franqueada</div>
+        <div style="color:var(--ib-graphite)">{{ franquia }}</div>
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:4px">Emissão</div>
+        <div style="color:var(--ib-graphite)">{{ dataEmissao }}</div>
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:4px">Validade</div>
+        <div style="color:var(--ib-graphite)">{{ validadeTexto }}</div>
+      </div>
+      <div>
+        <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:4px">Responsável</div>
+        <div style="color:var(--ib-graphite)">{{ consultor }}</div>
+      </div>
+    </div>
+    <div style="margin-top:auto;padding-top:20px;border-top:1px solid rgba(0,0,0,.1);font-size:.68rem;color:var(--ib-gray)">ibuildconstrutora.com.br</div>
+  </div>
+
+  <div style="position:relative;z-index:3;flex:1;min-width:320px;padding:80px max(28px, 5%) 64px;display:flex;flex-direction:column;justify-content:center;align-items:flex-end;text-align:right">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Eyebrow" rule="{{ true }}" hint-size="auto,16px">Proposta comercial · SOE 2.0</x-import>
+    <h1 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-hero);line-height:1.12;letter-spacing:2px;text-transform:uppercase;color:var(--ib-white);margin:22px 0 0;max-width:640px">{{ clienteNome }},<br>enquanto a sua vida segue,<br><span style="font-weight:100;font-style:italic;text-transform:none;letter-spacing:0">nós construímos.</span></h1>
+    <p style="max-width:520px;margin:26px 0 0;font-size:1.05rem;line-height:1.75;color:var(--ib-gray-light)">Cada número desta proposta é engenharia aplicada à previsibilidade: preço fechado, prazo contratual e auditoria da franqueadora em cada etapa. Você configura o escopo abaixo e vê o investimento se atualizar na hora.</p>
+    <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:flex-end;margin-top:44px">
+      <div style="text-align:right">
+        <div style="font-family:var(--font-display);font-weight:500;font-size:1.7rem;color:var(--ib-gold)">{{ areaFmt }}</div>
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-top:6px">Área de construção</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--font-display);font-weight:500;font-size:1.7rem;color:var(--ib-gold)">{{ prazoFmt }}</div>
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-top:6px">Prazo contratual</div>
+      </div>
+      <div style="text-align:right">
+        <div style="font-family:var(--font-display);font-weight:500;font-size:1.7rem;color:var(--ib-gold)">{{ pavimentos }}</div>
+        <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-top:6px">Pavimentos</div>
+      </div>
+    </div>
+    <div style="margin-top:52px;display:flex;gap:14px;flex-wrap:wrap;justify-content:flex-end">
+      <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" href="#kits" variant="gold" with-arrow="{{ true }}" hint-size="auto,44px">Configurar meu escopo</x-import>
+      <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" href="#escopo" variant="outlineLight" hint-size="auto,44px">Ver o memorial</x-import>
+    </div>
+  </div>
+</section>
+
+<section id="pilares" style="padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Por que a iBUILD" title="Os guardiões da sua tranquilidade" description="Você não coloca qualquer um dentro da sua casa. Estes são os cinco mecanismos que sustentam a promessa — cada um com processo, evidência e responsabilidade contratual por trás." align="center" hint-size="100%,180px"></x-import>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;margin-top:64px">
+      <sc-for list="{{ pilares }}" as="p" hint-placeholder-count="5">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.PillarCard" icon="{{ p.icon }}" name="{{ p.name }}" description="{{ p.description }}" hint-size="100%,260px"></x-import>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--ib-ink);background-image:var(--noise);padding:120px max(24px, (100vw - 1300px)/2)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+      <div style="flex:1;min-width:300px">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Eyebrow" rule="{{ true }}" hint-size="auto,16px">Eficiência e previsibilidade</x-import>
+        <h2 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h2);line-height:1.25;color:var(--ib-white);margin:20px 0 0;max-width:520px">Menos desperdício, mais precisão</h2>
+        <p style="max-width:520px;margin:20px 0 0;font-size:1rem;line-height:1.75;color:var(--ib-gray-light)">A engenharia industrial transforma o caos da obra tradicional em processo padronizado. Os indicadores abaixo comparam o sistema iBUILD com a obra convencional executada por empreiteiro.</p>
+        <div style="margin-top:36px;padding:24px;border:1px solid rgba(255,255,255,.09)">
+          <div style="font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold);margin-bottom:10px">Ferramenta de comparação</div>
+          <p style="margin:0 0 18px;font-size:.9rem;line-height:1.7;color:var(--ib-gray-light)">Recebeu outras propostas? Coloque-as lado a lado com esta, item por item, no comparador da iBUILD.</p>
+          <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" href="{{ comparadorUrl }}" variant="outlineLight" with-arrow="{{ true }}" hint-size="auto,44px">Comparar propostas</x-import>
+        </div>
+      </div>
+      <div style="flex:1;min-width:320px">
+        <sc-for list="{{ indicadores }}" as="i" hint-placeholder-count="5">
+          <div style="display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:baseline;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.09)">
+            <div style="font-size:.82rem;letter-spacing:.06em;text-transform:uppercase;color:var(--ib-gray)">{{ i.label }}</div>
+            <div style="font-family:var(--font-display);font-weight:500;font-size:1.05rem;color:var(--ib-gold);text-align:right">{{ i.ibuild }}</div>
+            <div style="font-size:.86rem;color:var(--ib-gray);text-align:right;min-width:130px">{{ i.tradicional }}</div>
+          </div>
+        </sc-for>
+        <div style="display:grid;grid-template-columns:1fr auto auto;gap:16px;margin-top:14px">
+          <div></div>
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold);text-align:right">iBUILD</div>
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);text-align:right;min-width:130px">Obra tradicional</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="escopo" style="padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:flex;flex-wrap:wrap;gap:48px;align-items:flex-end">
+      <div style="flex:1;min-width:300px">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Memorial descritivo" title="O que está incluso, etapa por etapa" description="Abra cada etapa para ler o escopo incluso, os limites e as premissas técnicas. Tudo executado conforme normas ABNT e procedimentos iBUILD." align="left" hint-size="100%,180px"></x-import>
+      </div>
+      <div style="flex:1;min-width:280px;aspect-ratio:16/10;overflow:hidden;background:var(--surface-sunken)">
+        <img src="https://ibuildconstrutora.com.br/assets/imoveis/aruja-sp-36652m/capa.webp" alt="Residência iBUILD em Arujá" style="width:100%;height:100%;object-fit:cover;display:block">
+      </div>
+    </div>
+    <div style="margin-top:56px;border-top:1px solid var(--border-strong)">
+      <sc-for list="{{ etapas }}" as="e" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid var(--border-strong)">
+          <button type="button" onClick="{{ e.toggle }}" style="width:100%;display:flex;align-items:center;gap:20px;padding:26px 4px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font-body)">
+            <span style="font-family:var(--font-display);font-size:.7rem;letter-spacing:.1em;color:var(--ib-gold-text);min-width:28px">{{ e.num }}</span>
+            <span style="flex:1;font-family:var(--font-display);font-weight:500;font-size:1.1rem;color:var(--text-strong)">{{ e.titulo }}</span>
+            <span style="font-size:.78rem;color:var(--text-muted);font-variant-numeric:tabular-nums">{{ e.peso }}</span>
+            <span style="font-size:1.2rem;color:var(--ib-gold-text);width:20px;text-align:center">{{ e.sinal }}</span>
+          </button>
+          <sc-if value="{{ e.open }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:0 4px 34px 68px;display:flex;flex-wrap:wrap;gap:36px">
+              <div style="flex:2;min-width:280px">
+                <p style="margin:0 0 20px;font-size:.95rem;line-height:1.8;color:var(--text-body);max-width:560px">{{ e.resumo }}</p>
+                <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold-text);margin-bottom:12px">Escopo incluso</div>
+                <ul style="margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px">
+                  <sc-for list="{{ e.itens }}" as="it" hint-placeholder-count="3">
+                    <li style="font-size:.9rem;line-height:1.7;color:var(--text-body)">{{ it }}</li>
+                  </sc-for>
+                </ul>
+              </div>
+              <div style="flex:1;min-width:240px;background:var(--surface-sunken);padding:24px">
+                <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:12px">Limites e exclusões</div>
+                <p style="margin:0;font-size:.86rem;line-height:1.75;color:var(--text-body)">{{ e.limites }}</p>
+              </div>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="kits" style="background:var(--ib-off-white);padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Configurador" title="Monte o escopo da sua obra" description="Ligue e desligue os kits, escolha o padrão de acabamento e acompanhe o investimento se atualizar. O escopo base é estrutural e não pode ser removido." align="left" hint-size="100%,180px"></x-import>
+
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:56px;align-items:flex-start">
+      <div style="flex:2;min-width:340px;display:flex;flex-direction:column;gap:40px">
+
+        <div style="background:var(--surface-card);border:1px solid var(--border-hairline);padding:32px">
+          <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:8px">
+            <h3 style="font-family:var(--font-display);font-weight:500;font-size:1.15rem;margin:0;color:var(--text-strong)">Escopo base — sempre incluso</h3>
+            <span style="font-family:var(--font-display);font-size:.95rem;color:var(--text-strong);font-variant-numeric:tabular-nums">{{ baseTotalFmt }}</span>
+          </div>
+          <p style="margin:0 0 20px;font-size:.86rem;line-height:1.7;color:var(--text-muted);max-width:520px">Projetos, fundação, estrutura em Light Steel Frame e fechamentos. É o corpo da casa: sem ele não existe obra.</p>
+          <sc-for list="{{ kitsBase }}" as="k" hint-placeholder-count="8">
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:16px 0;border-top:1px solid var(--border-strong)">
+              <span style="width:22px;height:22px;flex:none;display:flex;align-items:center;justify-content:center;background:var(--ib-graphite);margin-top:2px">
+                <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Icon" name="check" size="{{ 13 }}" color="#fff" hint-size="13px,13px"></x-import>
+              </span>
+              <div style="flex:1;min-width:0">
+                <div style="font-size:.94rem;color:var(--text-strong)">{{ k.label }}</div>
+                <div style="font-size:.8rem;line-height:1.6;color:var(--text-muted);margin-top:3px">{{ k.desc }}</div>
+              </div>
+              <div style="font-family:var(--font-display);font-size:.9rem;color:var(--text-strong);font-variant-numeric:tabular-nums;text-align:right;min-width:120px">{{ k.valorFmt }}</div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:var(--surface-card);border:1px solid var(--border-hairline);padding:32px">
+          <h3 style="font-family:var(--font-display);font-weight:500;font-size:1.15rem;margin:0 0 8px;color:var(--text-strong)">Kits opcionais</h3>
+          <p style="margin:0 0 24px;font-size:.86rem;line-height:1.7;color:var(--text-muted);max-width:520px">Desligue um kit e a casa é entregue em obra branca naquele item. O que você desligar sai do preço e da responsabilidade da iBUILD.</p>
+          <sc-for list="{{ kitsOpcionais }}" as="k" hint-placeholder-count="5">
+            <div style="display:flex;gap:16px;align-items:flex-start;padding:18px 0;border-top:1px solid var(--border-strong)">
+              <button type="button" role="switch" onClick="{{ k.toggle }}" style="position:relative;width:40px;height:22px;flex:none;margin-top:2px;cursor:pointer;border:none;border-radius:999px;transition:background .2s" style-hover="opacity:.85" aria-label="{{ k.label }}">
+                <span style="position:absolute;inset:0;border-radius:999px;background:{{ k.trackColor }}"></span>
+                <span style="position:absolute;top:3px;left:{{ k.knobLeft }};width:16px;height:16px;border-radius:50%;background:#fff;transition:left .3s cubic-bezier(.16,1,.3,1)"></span>
+              </button>
+              <div style="flex:1;min-width:0">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <span style="font-size:.94rem;color:var(--text-strong)">{{ k.label }}</span>
+                  <sc-if value="{{ k.padraoTag }}" hint-placeholder-val="{{ false }}">
+                    <span style="font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gold-text);border:1px solid rgba(200,169,110,.5);padding:2px 7px">Segue o padrão</span>
+                  </sc-if>
+                </div>
+                <div style="font-size:.8rem;line-height:1.6;color:var(--text-muted);margin-top:3px">{{ k.desc }}</div>
+              </div>
+              <div style="text-align:right;min-width:120px">
+                <div style="font-family:var(--font-display);font-size:.9rem;color:{{ k.valorColor }};font-variant-numeric:tabular-nums">{{ k.valorFmt }}</div>
+                <sc-if value="{{ k.mostrarBase }}" hint-placeholder-val="{{ false }}">
+                  <div style="font-size:.72rem;color:var(--text-muted);text-decoration:line-through;margin-top:2px;font-variant-numeric:tabular-nums">{{ k.baseFmt }}</div>
+                </sc-if>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+
+        <div style="background:var(--surface-card);border:1px solid var(--border-hairline);padding:32px">
+          <h3 style="font-family:var(--font-display);font-weight:500;font-size:1.15rem;margin:0 0 8px;color:var(--text-strong)">Itens extras — orçamento complementar</h3>
+          <p style="margin:0 0 12px;font-size:.86rem;line-height:1.7;color:var(--text-muted);max-width:520px">Estes serviços dependem de análise técnica do terreno e não entram no preço fechado. Marque o que você quer que a unidade franqueada orce junto.</p>
+          <sc-for list="{{ extras }}" as="x" hint-placeholder-count="4">
+            <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.ToggleRow" label="{{ x.label }}" description="{{ x.desc }}" checked="{{ x.on }}" on-change="{{ x.toggle }}" hint-size="100%,58px"></x-import>
+          </sc-for>
+          <p style="margin:18px 0 0;font-size:.82rem;color:var(--ib-gold-text)">{{ extrasResumo }}</p>
+        </div>
+
+      </div>
+
+      <div style="flex:1;min-width:320px;position:sticky;top:88px;display:flex;flex-direction:column;gap:22px">
+        <div style="background:var(--ib-ink);background-image:var(--noise);color:var(--ib-white);padding:34px 26px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold);margin-bottom:22px">Padrão de acabamento</div>
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:30px">
+            <sc-for list="{{ padroes }}" as="p" hint-placeholder-count="3">
+              <button type="button" onClick="{{ p.select }}" style="display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;padding:14px 16px;cursor:pointer;text-align:left;font-family:var(--font-body);background:{{ p.bg }};border:1px solid {{ p.border }};color:{{ p.color }}">
+                <span style="font-size:.85rem;letter-spacing:.06em">{{ p.label }}</span>
+                <span style="font-size:.72rem;font-variant-numeric:tabular-nums;opacity:.8">{{ p.delta }}</span>
+              </button>
+            </sc-for>
+          </div>
+          <div style="padding-top:26px;border-top:1px solid rgba(255,255,255,.12)">
+            <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gray);margin-bottom:8px">Investimento configurado</div>
+            <div style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.2rem,2.4vw,1.9rem);line-height:1.2;color:var(--ib-gold);font-variant-numeric:tabular-nums;white-space:nowrap">{{ totalFmt }}</div>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:20px;font-size:.82rem;color:var(--ib-gray-light)">
+              <span>Custo por m²</span><span style="font-variant-numeric:tabular-nums;color:var(--ib-white)">{{ porM2Fmt }}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:.82rem;color:var(--ib-gray-light)">
+              <span>Obra branca</span><span style="font-variant-numeric:tabular-nums;color:var(--ib-white)">{{ obraBrancaFmt }}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:.82rem;color:var(--ib-gray-light)">
+              <span>Acabamentos</span><span style="font-variant-numeric:tabular-nums;color:var(--ib-white)">{{ acabamentosFmt }}</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;gap:12px;margin-top:10px;font-size:.82rem;color:var(--ib-gray-light)">
+              <span>Kits ativos</span><span style="font-variant-numeric:tabular-nums;color:var(--ib-white)">{{ kitsAtivosFmt }}</span>
+            </div>
+          </div>
+          <p style="margin:24px 0 0;font-size:.72rem;line-height:1.65;color:var(--ib-gray)">Valores de custo direto — materiais, mão de obra e gestão. Impostos calculados à parte na emissão da nota fiscal.</p>
+        </div>
+        <div style="background:var(--surface-card);border:1px solid var(--border-hairline);border-left:2px solid var(--accent);padding:24px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold-text);margin-bottom:10px">Peso por fase</div>
+          <sc-for list="{{ pesos }}" as="w" hint-placeholder-count="4">
+            <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.ProgressRow" stage="{{ w.stage }}" percent="{{ w.percent }}" note="{{ w.note }}" hint-size="100%,42px"></x-import>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="padding:120px max(24px, (100vw - 1300px)/2)">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Relatório do imóvel" title="Os quantitativos da sua simulação" description="Levantamento gerado a partir do relatório para desenvolvimento do projeto arquitetônico. É a base de cálculo de cada kit acima." align="left" hint-size="100%,180px"></x-import>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:var(--border-strong);margin-top:56px;border:1px solid var(--border-strong)">
+      <sc-for list="{{ quantitativos }}" as="q" hint-placeholder-count="12">
+        <div style="background:var(--surface-card);padding:24px 22px">
+          <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">{{ q.label }}</div>
+          <div style="font-family:var(--font-display);font-weight:500;font-size:1.25rem;color:var(--text-strong);margin-top:8px;font-variant-numeric:tabular-nums">{{ q.value }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="padding:0 0 120px">
+  <div style="max-width:1300px;margin:0 auto;padding:0 max(24px, (100vw - 1300px)/2)">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Obras entregues" title="A casa que constrói histórias" description="Projetos residenciais e comerciais executados pela rede iBUILD em mais de 15 estados. O mesmo método industrializado que sustenta esta proposta." align="left" hint-size="100%,180px"></x-import>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:56px">
+      <sc-for list="{{ galeria }}" as="g" hint-placeholder-count="6">
+        <figure style="margin:0;position:relative;overflow:hidden;background:var(--ib-ink)">
+          <div style="aspect-ratio:{{ g.ratio }};overflow:hidden">
+            <img src="{{ g.img }}" alt="{{ g.titulo }}" style="width:100%;height:100%;object-fit:cover;display:block">
+          </div>
+          <figcaption style="position:absolute;left:0;right:0;bottom:0;padding:24px 22px;background:linear-gradient(to top, rgba(0,0,0,.82), rgba(0,0,0,0))">
+            <div style="font-family:var(--font-display);font-weight:500;font-size:1rem;color:var(--ib-white)">{{ g.titulo }}</div>
+            <div style="font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ib-gold);margin-top:6px">{{ g.meta }}</div>
+          </figcaption>
+        </figure>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="cronograma" style="background:var(--ib-off-white);padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Passo a passo" title="Da ideia à entrega em 6 meses" description="O prazo começa a ser contado no início efetivo da obra, não na assinatura desta proposta. Cada etapa tem checklist, evidência fotográfica no aplicativo e validação da franqueadora." align="left" hint-size="100%,180px"></x-import>
+    <div style="margin-top:56px;background:var(--surface-card);border:1px solid var(--border-hairline);padding:32px 28px">
+      <div style="display:grid;grid-template-columns:220px repeat(6,1fr);gap:10px;align-items:center;padding-bottom:14px;border-bottom:1px solid var(--border-strong)">
+        <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted)">Etapa</div>
+        <sc-for list="{{ meses }}" as="m" hint-placeholder-count="6">
+          <div style="font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);text-align:center">{{ m }}</div>
+        </sc-for>
+      </div>
+      <sc-for list="{{ cronograma }}" as="c" hint-placeholder-count="9">
+        <div style="display:grid;grid-template-columns:220px repeat(6,1fr);gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid var(--border-strong)">
+          <div style="font-size:.84rem;color:var(--text-strong);padding-right:12px">{{ c.label }}</div>
+          <div style="grid-column:{{ c.span }};height:10px;background:{{ c.cor }}"></div>
+        </div>
+      </sc-for>
+      <div style="display:flex;gap:24px;flex-wrap:wrap;margin-top:20px;font-size:.72rem;color:var(--text-muted)">
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:8px;background:var(--ib-graphite);display:block"></span>Obra branca</span>
+        <span style="display:flex;align-items:center;gap:8px"><span style="width:14px;height:8px;background:var(--accent);display:block"></span>Acabamentos</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="investimento" style="padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Investimento" title="Como o pagamento acompanha a obra" description="Entrada para mobilizar o canteiro e o saldo em medições mensais conferidas pela franqueadora. Você paga o que foi executado e comprovado." align="left" hint-size="100%,180px"></x-import>
+
+    <div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:56px;align-items:flex-start">
+      <div style="flex:2;min-width:340px">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.CostTable" columns="{{ tabelaColunas }}" rows="{{ tabelaLinhas }}" total="{{ tabelaTotal }}" hint-size="100%,420px"></x-import>
+        <p style="margin:18px 0 0;font-size:.78rem;line-height:1.7;color:var(--text-muted);max-width:620px">Os valores correspondem ao custo direto da obra. Impostos (ISS, PIS, COFINS, IRPJ e CSLL) são calculados à parte na emissão da nota fiscal, pois variam conforme o regime tributário de cada operação.</p>
+      </div>
+      <div style="flex:1;min-width:300px;display:flex;flex-direction:column;gap:22px">
+        <div style="background:var(--ib-ink);color:var(--ib-white);padding:32px 28px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold);margin-bottom:20px">Condições de pagamento</div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding-bottom:16px;border-bottom:1px solid rgba(255,255,255,.12)">
+            <span style="font-size:.85rem;color:var(--ib-gray-light)">Entrada — {{ entradaPctFmt }}</span>
+            <span style="font-family:var(--font-display);font-weight:500;font-variant-numeric:tabular-nums">{{ entradaFmt }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.12)">
+            <span style="font-size:.85rem;color:var(--ib-gray-light)">Saldo em medições</span>
+            <span style="font-family:var(--font-display);font-weight:500;font-variant-numeric:tabular-nums">{{ saldoFmt }}</span>
+          </div>
+          <div style="display:flex;justify-content:space-between;gap:12px;padding:16px 0">
+            <span style="font-size:.85rem;color:var(--ib-gray-light)">Medição média mensal</span>
+            <span style="font-family:var(--font-display);font-weight:500;font-variant-numeric:tabular-nums">{{ medicaoFmt }}</span>
+          </div>
+          <ul style="margin:14px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:10px">
+            <li style="font-size:.8rem;line-height:1.65;color:var(--ib-gray-light)">Medições no dia 25 de cada mês, pagamento em até 5 dias após o envio do boletim.</li>
+            <li style="font-size:.8rem;line-height:1.65;color:var(--ib-gray-light)">O franqueado só recebe depois que a franqueadora confere tecnicamente a execução.</li>
+            <li style="font-size:.8rem;line-height:1.65;color:var(--ib-gray-light)">Relatório de progresso e fotos do diário de obra acompanham cada fatura.</li>
+            <li style="font-size:.8rem;line-height:1.65;color:var(--ib-gray-light)">Atraso superior a 120 dias no início por documentação do cliente reajusta o saldo pelo INCC/FGV.</li>
+          </ul>
+        </div>
+        <div style="background:var(--surface-card);border:1px solid var(--border-hairline);border-left:2px solid var(--accent);padding:26px">
+          <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold-text);margin-bottom:10px">Economia inteligente</div>
+          <p style="margin:0;font-size:.88rem;line-height:1.75;color:var(--text-body)">O sistema industrializado da iBUILD é reconhecido pela Receita Federal como processo racionalizado, o que reduz em até 80% o valor do INSS da obra.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;background:var(--ib-ink);padding:110px max(24px, (100vw - 1300px)/2)">
+  <img src="https://ibuildconstrutora.com.br/assets/imoveis/granja-viana-sp-343m/capa.webp" alt="Residência iBUILD na Granja Viana" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div style="position:absolute;inset:0;background:var(--scrim-flat)"></div>
+  <div style="position:relative;z-index:2;max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:48px;align-items:center">
+    <div style="flex:1;min-width:300px">
+      <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Eyebrow" rule="{{ true }}" hint-size="auto,16px">Seguro de obra</x-import>
+      <h2 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h2);line-height:1.25;color:var(--ib-white);margin:20px 0 0;max-width:520px">O risco da obra não é seu</h2>
+      <p style="max-width:520px;margin:20px 0 0;font-size:1rem;line-height:1.8;color:var(--ib-gray-light)">Toda obra iBUILD é contratada com seguro vigente durante a execução. Incêndio, vendaval, danos a terceiros e responsabilidade civil do canteiro estão cobertos por apólice — e a franqueadora responde contratualmente pela auditoria de cada etapa. Você não vira fiscal da própria casa.</p>
+    </div>
+    <div style="flex:1;min-width:300px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:1px;background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.09)">
+      <sc-for list="{{ seguroItens }}" as="s" hint-placeholder-count="4">
+        <div style="background:var(--ib-ink);padding:26px 22px">
+          <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Icon" name="{{ s.icon }}" size="{{ 22 }}" color="#DCC580" hint-size="22px,22px"></x-import>
+          <div style="font-family:var(--font-display);font-weight:500;font-size:.95rem;color:var(--ib-white);margin-top:16px">{{ s.titulo }}</div>
+          <div style="font-size:.8rem;line-height:1.65;color:var(--ib-gray);margin-top:6px">{{ s.desc }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="duvidas" style="padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.SectionHeading" label="Esclarecimento de dúvidas" title="As perguntas que todo cliente faz" description="Respostas diretas, com o mecanismo por trás. Se ficar qualquer dúvida, fale com o consultor pelo WhatsApp no fim da proposta." align="left" hint-size="100%,180px"></x-import>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(340px,1fr));gap:0 48px;margin-top:56px">
+      <sc-for list="{{ faq }}" as="f" hint-placeholder-count="8">
+        <div style="border-bottom:1px solid var(--border-strong)">
+          <button type="button" onClick="{{ f.toggle }}" style="width:100%;display:flex;align-items:flex-start;gap:16px;padding:22px 2px;background:transparent;border:none;cursor:pointer;text-align:left;font-family:var(--font-body)">
+            <span style="flex:1;font-size:.98rem;line-height:1.5;color:var(--text-strong)">{{ f.q }}</span>
+            <span style="font-size:1.15rem;color:var(--ib-gold-text);width:18px;text-align:center;line-height:1.3">{{ f.sinal }}</span>
+          </button>
+          <sc-if value="{{ f.open }}" hint-placeholder-val="{{ false }}">
+            <p style="margin:0;padding:0 34px 26px 2px;font-size:.9rem;line-height:1.85;color:var(--text-body)">{{ f.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--ib-off-white);padding:110px max(24px, (100vw - 1300px)/2)">
+  <div style="max-width:1300px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:48px">
+      <sc-for list="{{ numeros }}" as="n" hint-placeholder-count="4">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.StatBig" value="{{ n.value }}" label="{{ n.label }}" hint-size="100%,140px"></x-import>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="position:relative;min-height:460px;display:flex;align-items:center;overflow:hidden;background:var(--ib-ink)">
+  <img src="https://ibuildconstrutora.com.br/assets/imoveis/itupeva-sp-402m/capa.webp" alt="Residência iBUILD em Itupeva" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover">
+  <div style="position:absolute;inset:0;background:var(--scrim-flat)"></div>
+  <div style="position:relative;z-index:2;width:100%;padding:110px max(24px, (100vw - 1300px)/2)">
+    <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.QuoteBlock" quote="Qualidade não é o fim. É o que permite você não pensar na obra." author="iBUILD Construtora" tone="dark" hint-size="100%,180px"></x-import>
+  </div>
+</section>
+
+<section id="aceite" style="background:var(--ib-ink);background-image:var(--noise);padding:120px max(24px, (100vw - 1300px)/2);scroll-margin-top:70px">
+  <div style="max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:56px;align-items:flex-start">
+    <div style="flex:1;min-width:300px">
+      <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Eyebrow" rule="{{ true }}" hint-size="auto,16px">Próximos passos</x-import>
+      <h2 style="font-family:var(--font-display);font-weight:500;font-size:var(--type-h2);line-height:1.25;color:var(--ib-white);margin:20px 0 0;max-width:520px">Deixa com a gente</h2>
+      <ol style="margin:32px 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:0;max-width:520px">
+        <sc-for list="{{ passos }}" as="s" hint-placeholder-count="4">
+          <li style="display:flex;gap:20px;padding:20px 0;border-bottom:1px solid rgba(255,255,255,.1)">
+            <span style="font-family:var(--font-display);font-size:.7rem;color:var(--ib-gold);min-width:24px;padding-top:4px">{{ s.n }}</span>
+            <span>
+              <span style="display:block;font-size:.98rem;color:var(--ib-white)">{{ s.titulo }}</span>
+              <span style="display:block;font-size:.84rem;line-height:1.7;color:var(--ib-gray);margin-top:4px">{{ s.desc }}</span>
+            </span>
+          </li>
+        </sc-for>
+      </ol>
+      <p style="margin:36px 0 0;font-family:var(--font-script);font-size:2rem;color:var(--ib-gold)">Deixa com a gente, nós construímos!</p>
+    </div>
+
+    <div style="flex:1;min-width:320px;background:var(--ib-white);padding:40px 34px">
+      <div style="font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ib-gold-text);margin-bottom:18px">Aceite desta configuração</div>
+      <div style="display:flex;align-items:baseline;justify-content:space-between;gap:14px;padding-bottom:20px;border-bottom:1px solid var(--border-strong)">
+        <span style="font-size:.85rem;color:var(--text-muted)">Investimento configurado</span>
+        <span style="font-family:var(--font-display);font-weight:700;font-size:clamp(1.15rem,2vw,1.5rem);color:var(--text-strong);font-variant-numeric:tabular-nums;white-space:nowrap">{{ totalFmt }}</span>
+      </div>
+      <div style="padding:18px 0;border-bottom:1px solid var(--border-strong);font-size:.84rem;line-height:1.8;color:var(--text-body)">{{ resumoAceite }}</div>
+
+      <label style="display:flex;gap:12px;align-items:flex-start;margin-top:24px;cursor:pointer">
+        <input type="checkbox" checked="{{ aceito }}" onChange="{{ toggleAceite }}" style="width:18px;height:18px;margin-top:2px;accent-color:#9C824C;flex:none">
+        <span style="font-size:.84rem;line-height:1.7;color:var(--text-body)">Li o escopo, os limites e as condições de pagamento e aceito esta configuração como base do meu contrato.</span>
+      </label>
+
+      <div style="margin-top:16px">
+        <div style="font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px">Assinatura digital</div>
+        <input type="text" value="{{ assinatura }}" onChange="{{ setAssinatura }}" placeholder="Digite seu nome completo" style="width:100%;box-sizing:border-box;font-family:var(--font-doc);font-size:.95rem;padding:12px;border:1px solid var(--border-strong);background:var(--surface-card);color:var(--text-strong);outline:none">
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:12px;margin-top:26px">
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" variant="dark" disabled="{{ aceiteBloqueado }}" on-click="{{ confirmarAceite }}" with-arrow="{{ true }}" style="justify-content:center" hint-size="100%,46px">{{ botaoAceite }}</x-import>
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" variant="outlineDark" on-click="{{ gerarPdf }}" style="justify-content:center" hint-size="100%,46px">Gerar PDF desta configuração</x-import>
+        <x-import component-from-global-scope="IBUILDDesignSystem_d69a62.Button" variant="quiet" href="{{ whatsappUrl }}" style="justify-content:center" hint-size="100%,46px">Falar com o consultor</x-import>
+      </div>
+      <p style="margin:20px 0 0;font-size:.74rem;line-height:1.7;color:var(--text-muted)">{{ validadeAviso }}</p>
+    </div>
+  </div>
+</section>
+
+<footer style="background:var(--ib-black);padding:44px max(24px, (100vw - 1300px)/2)">
+  <div style="max-width:1300px;margin:0 auto;display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between">
+    <img src="assets/logo-branco.png" alt="iBUILD" style="height:15px;width:auto">
+    <div style="font-size:.72rem;color:var(--ib-gray)">iBUILD Construtora · {{ franquia }} · Documento confidencial · Proposta {{ propostaNumero }}</div>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;clienteNome&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Gabriel&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;propostaNumero&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;25874 — ED01&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;franquia&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Marília — SP&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;consultor&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;Luara de Oliveira Golim&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;dataEmissao&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;03/07/2025&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;validadeDias&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:20,&quot;min&quot;:5,&quot;max&quot;:90,&quot;unit&quot;:&quot;dias&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;whatsapp&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;5514999999999&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;comparadorUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;#&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Cliente&quot;},&quot;areaConstruida&quot;:{&quot;editor&quot;:&quot;float&quot;,&quot;default&quot;:258.43,&quot;min&quot;:40,&quot;max&quot;:2000,&quot;step&quot;:0.01,&quot;unit&quot;:&quot;m²&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Obra&quot;},&quot;pavimentos&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Obra&quot;},&quot;prazoMeses&quot;:{&quot;editor&quot;:&quot;int&quot;,&quot;default&quot;:6,&quot;min&quot;:3,&quot;max&quot;:24,&quot;unit&quot;:&quot;meses&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Obra&quot;},&quot;entradaPct&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:30,&quot;min&quot;:10,&quot;max&quot;:60,&quot;step&quot;:5,&quot;unit&quot;:&quot;%&quot;,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Obra&quot;}}">
+const BRL = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL', minimumFractionDigits: 2 });
+const NUM = new Intl.NumberFormat('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+const BASE = [
+  { id: 'servicos', label: 'Serviços iniciais e projetos', valor: 58468.76, grupo: 'branca', desc: 'Projetos estrutural, fundação, hidrossanitário e elétrico industrializados, compatibilização, canteiro padrão e gabaritos de locação.' },
+  { id: 'fundacao', label: 'Kit Fundação Leve — Radier', valor: 75610.10, grupo: 'branca', desc: 'Preparação e compactação do solo, redes sob radier e concretagem com macro e microfibra.' },
+  { id: 'lsf_mat', label: 'Kit Steel Frame — Materiais', valor: 199832.93, grupo: 'branca', desc: 'Perfis de aço galvanizado cortados e furados em linha automatizada, com frete e conferência na obra.' },
+  { id: 'lsf_mo', label: 'Kit Steel Frame — Mão de obra', valor: 107602.34, grupo: 'branca', desc: 'Locação dos painéis, impermeabilização das bases, montagem e verticalização da estrutura.' },
+  { id: 'cobertura', label: 'Kit Cobertura', valor: 46775.68, grupo: 'branca', desc: 'Calhas e telhamento em aço galvanizado, rufos e pingadeiras sob medida.' },
+  { id: 'fech_ext', label: 'Fechamento de paredes externas', valor: 176974.54, grupo: 'branca', desc: 'Placas cimentícias com juntas tratadas, basecoat, selantes e andaimes.' },
+  { id: 'fech_int', label: 'Fechamento de paredes internas e forros', valor: 151311.51, grupo: 'branca', desc: 'Isolamento em lã de PET, gesso acartonado, forros e tratamento de juntas.' },
+  { id: 'contrapiso', label: 'Acertos e nivelamento de pisos', valor: 28511.76, grupo: 'branca', desc: 'Contrapiso 1:3 com 5 cm médios sobre radier e lajes, com juntas de dilatação.' }
+];
+
+const OPCIONAIS = [
+  { id: 'eletrica', label: 'Kit Elétrica', valor: 48120.68, grupo: 'branca', padrao: false, desc: 'Chicotes elétricos montados em fábrica, módulos de tomada, interruptores, quadro de distribuição e certificação da rede.' },
+  { id: 'hidraulica', label: 'Kit Hidráulica', valor: 48120.67, grupo: 'branca', padrao: false, desc: 'Chassis de registros, PEX de água quente e fria, ligações de esgoto e pluvial, testes de estanqueidade.' },
+  { id: 'esquadrias', label: 'Kit Esquadrias e Portas', valor: 89500.00, grupo: 'acabamento', padrao: true, desc: 'Esquadrias de alumínio com vidro e 19 portas internas lisas de madeira.' },
+  { id: 'acabamentos', label: 'Kit Acabamentos', valor: 327492.71, grupo: 'acabamento', padrao: true, desc: 'Pisos e revestimentos, louças e metais, granitos, pintura interna e externa completas.' },
+  { id: 'especiais', label: 'Itens especiais', valor: 6081.81, grupo: 'especiais', padrao: false, desc: 'Soluções pontuais previstas no levantamento inicial da simulação.' }
+];
+
+const PADROES = [
+  { id: 'standard', label: 'Standard', mult: 0.85 },
+  { id: 'premium', label: 'Premium', mult: 1.00 },
+  { id: 'supreme', label: 'Supreme', mult: 1.28 }
+];
+
+const EXTRAS = [
+  { id: 'terra', label: 'Movimentação de terra, terraplenagem e topografia', desc: 'Inclui estudo de solo e limpeza do terreno' },
+  { id: 'arrimo', label: 'Muros de arrimo e fundações profundas', desc: 'Estacas, tubulões ou caixão perdido' },
+  { id: 'piscina', label: 'Piscina estrutural com instalações técnicas', desc: 'Cálculo estrutural e impermeabilização à parte' },
+  { id: 'terreno', label: 'Fechamento do terreno — muros e divisas', desc: 'Mediante orçamento e análise técnica' }
+];
+
+const ETAPAS = [
+  { num: '01', titulo: 'Serviços iniciais', peso: '4,3%', resumo: 'Toda a preparação técnica e operacional para o início da obra, garantindo que o projeto seja desenvolvido com base em informações precisas e compatíveis.', itens: ['Projetos estrutural em LSF, fundação radier, hidrossanitário e elétrico industrializados', 'Compatibilização entre todas as disciplinas técnicas', 'Canteiro padrão iBUILD: portão, tapume, container de estoque e banheiro químico', 'Gabaritos de locação de radier, hidráulica e elétrica'], limites: 'Não inclui licenças, ligações provisórias, serviços de limpeza ou terraplenagem. Todos os projetos acompanham ART.' },
+  { num: '02', titulo: 'Fundações', peso: '5,5%', resumo: 'Execução da fundação do imóvel com preparação do solo, redes sob o radier e concretagem com reforço em macro e microfibra.', itens: ['Escavação, tubulações e eletrodutos sob radier, reaterro e interligações', 'Preparação e compactação do solo', 'Formas de madeira ou chassis industrializado', 'Concretagem do radier com macro e microfibras'], limites: 'Não inclui fundações profundas, contenções, caixões perdidos, muros de arrimo ou drenagens especiais.' },
+  { num: '03', titulo: 'Estrutura Light Steel Frame', peso: '22,5%', resumo: 'Fabricação e montagem da estrutura principal em painéis e perfis de aço galvanizado produzidos industrialmente, com precisão milimétrica e rastreabilidade total.', itens: ['Locação e demarcação dos painéis no radier', 'Impermeabilização das bases e montagem completa da estrutura', 'Verticalização: paredes, estrutura de laje e integração entre módulos', 'Frete e recebimento do aço com conferência de componentes'], limites: 'Não inclui estruturas auxiliares em aço pesado, ampliações ou pavimentos adicionais não previstos.' },
+  { num: '04', titulo: 'Cobertura', peso: '3,5%', resumo: 'Execução completa da cobertura, responsável pela estanqueidade, conforto termoacústico e durabilidade do sistema construtivo.', itens: ['Calhas metálicas em aço galvanizado nº 26 sob medida', 'Telhamento conforme o tipo definido em projeto', 'Rufos em aço galvanizado nº 28 e pingadeiras metálicas'], limites: 'Não inclui aquecimento solar, calhas ocultas, rufos especiais, domus de iluminação ou coberturas que exijam projeto específico.' },
+  { num: '05', titulo: 'Fechamento de paredes externas', peso: '13,0%', resumo: 'Sistema de fechamento externo em tecnologia industrializada, com estanqueidade, resistência mecânica e acabamento uniforme.', itens: ['Plaqueamento externo em placas cimentícias com juntas tratadas', 'Basecoat, reforços e selantes contra intempéries', 'Andaimes e acessórios para execução segura das fachadas'], limites: 'Não inclui pintura, textura, revestimentos cerâmicos ou fachadas especiais que dependam de projeto arquitetônico específico.' },
+  { num: '06', titulo: 'Instalações hidráulicas e elétricas', peso: '7,1%', resumo: 'Componentes produzidos em fábrica, testados e enviados prontos para montagem, eliminando retrabalho no canteiro.', itens: ['Chassis de registros, conexões e mangueiras PEX de água quente e fria', 'Ligações pluviais e de esgoto com testes de estanqueidade e certificação', 'Chicotes elétricos, módulos de tomadas, interruptores e quadro de distribuição', 'Testes de continuidade, carga e certificação da rede elétrica'], limites: 'Não inclui louças sanitárias, luminárias, chuveiros, torneiras e itens de acabamento que dependam de especificação do cliente.' },
+  { num: '07', titulo: 'Fechamento interno e forros', peso: '11,1%', resumo: 'Fechamento das paredes e forros internos com conforto termoacústico, resistência e acabamento técnico sobre a estrutura em LSF.', itens: ['Isolamento termoacústico em lã de PET nas paredes internas', 'Plaqueamento em gesso acartonado sobre estrutura metálica leve', 'Forros de gesso acartonado com tratamento termoacústico', 'Tratamento de juntas e acabamento superficial'], limites: 'Não inclui pintura, revestimentos decorativos, molduras ou sancas. Forros em PVC, cimentício ou acústico premium exigem projeto específico.' },
+  { num: '08', titulo: 'Acabamentos', peso: '30,6%', resumo: 'Finalização estética e funcional: revestimentos, louças, metais, portas e pintura, no padrão construtivo escolhido no levantamento inicial.', itens: ['Esquadrias de alumínio com vidro e portas internas lisas de madeira', 'Pisos, impermeabilização de áreas molhadas e revestimento cerâmico', 'Bancadas em granito ou mármore', 'Kits de louças e metais para banheiros, cozinha e lavanderia', 'Pintura externa em textura acrílica e elastomérica; interna com massa corrida'], limites: 'Os acabamentos são sugestões de referência do padrão escolhido. As trocas são definidas na reunião de acabamento, com base na Lista de Materiais Substituíveis: havendo crédito o valor é abatido, havendo débito é emitido aditivo contratual.' }
+];
+
+const FAQ = [
+  { q: 'Steel Frame é quente? Esquenta mais que alvenaria?', a: 'O contrário. A parede iBUILD é um sistema multicamada com isolamento termoacústico em lã de PET entre os perfis, coisa que a parede de tijolo não tem. O desempenho térmico e acústico é medido e atende às normas ABNT de desempenho — na prática, o ar-condicionado trabalha menos.' },
+  { q: 'Posso pendurar TV, armário e prateleira na parede?', a: 'Sim. Os pontos de carga são previstos em projeto: onde vai armário, TV ou bancada, a estrutura recebe reforço no perfil metálico. É por isso que o projeto vem antes da obra — o reforço é planejado, não improvisado.' },
+  { q: 'O preço pode mudar depois que eu assinar?', a: 'O preço é fechado em contrato. Ele só se altera em duas hipóteses previstas: se você trocar acabamento por item de valor diferente na reunião de acabamento (com balanço financeiro e aditivo), ou se o início da obra atrasar mais de 120 dias por documentação de sua responsabilidade, quando o saldo é corrigido pelo INCC/FGV.' },
+  { q: 'E se a obra atrasar?', a: 'O prazo é contratual e conta do início efetivo da obra. O avanço é medido no dia 25 de cada mês, o boletim de medição é conferido pela franqueadora e o pagamento só é liberado depois dessa conferência. Atraso do franqueado aparece na medição antes de aparecer no seu calendário.' },
+  { q: 'Como eu acompanho a obra sem ir até lá?', a: 'Pelo aplicativo iBUILD One. Diário de obra com foto todo dia, checklist de cada etapa, evidências da auditoria e o percentual de avanço físico e financeiro. É o mesmo dado que a franqueadora usa para liberar o pagamento.' },
+  { q: 'Quem responde se o franqueado errar?', a: 'A franqueadora audita cada etapa com checklist e evidência, e a liberação de pagamento depende dessa conferência técnica. A responsabilidade pela qualidade é contratual e a obra tem seguro vigente durante toda a execução.' },
+  { q: 'A casa em Steel Frame valoriza na revenda?', a: 'A avaliação de mercado considera projeto, acabamento e localização, não o sistema estrutural. O que você leva a mais é documentação: projetos com ART, memorial, diário de obra e histórico de auditoria — material que nenhuma obra de empreiteiro entrega.' },
+  { q: 'Por que impostos não estão no valor da proposta?', a: 'Porque variam conforme o regime tributário e o enquadramento fiscal de cada operação, e são calculados na emissão da nota fiscal. O sistema industrializado é reconhecido pela Receita Federal como processo racionalizado, o que reduz em até 80% o INSS da obra.' }
+];
+
+const CRONOGRAMA = [
+  { label: 'Serviços iniciais e projetos', ini: 1, fim: 1, grupo: 'branca' },
+  { label: 'Fundação — radier', ini: 1, fim: 2, grupo: 'branca' },
+  { label: 'Estrutura Light Steel Frame', ini: 2, fim: 3, grupo: 'branca' },
+  { label: 'Cobertura', ini: 3, fim: 3, grupo: 'branca' },
+  { label: 'Fechamento de paredes externas', ini: 3, fim: 4, grupo: 'branca' },
+  { label: 'Instalações hidráulicas e elétricas', ini: 4, fim: 4, grupo: 'branca' },
+  { label: 'Contrapiso e nivelamento', ini: 4, fim: 5, grupo: 'branca' },
+  { label: 'Fechamento interno e forros', ini: 4, fim: 5, grupo: 'branca' },
+  { label: 'Acabamentos', ini: 5, fim: 6, grupo: 'acabamento' },
+  { label: 'Entrega e vistoria', ini: 6, fim: 6, grupo: 'acabamento' }
+];
+
+class Component extends DCLogic {
+  state = {
+    ligados: { eletrica: true, hidraulica: true, esquadrias: true, acabamentos: true, especiais: true },
+    extras: { terra: false, arrimo: false, piscina: false, terreno: false },
+    padrao: 'premium',
+    etapaAberta: 0,
+    faqAberta: -1,
+    aceito: false,
+    assinatura: '',
+    confirmado: false
+  };
+
+  get mult() {
+    const p = PADROES.find(x => x.id === this.state.padrao) || PADROES[1];
+    return p.mult;
+  }
+
+  valorKit(k) {
+    return k.padrao ? k.valor * this.mult : k.valor;
+  }
+
+  selecionados() {
+    const opt = OPCIONAIS.filter(k => this.state.ligados[k.id]);
+    return BASE.concat(opt);
+  }
+
+  totais() {
+    let branca = 0, acab = 0, esp = 0;
+    BASE.forEach(k => { branca += k.valor; });
+    OPCIONAIS.forEach(k => {
+      if (!this.state.ligados[k.id]) return;
+      const v = this.valorKit(k);
+      if (k.grupo === 'acabamento') acab += v;
+      else if (k.grupo === 'especiais') esp += v;
+      else branca += v;
+    });
+    return { branca, acab, esp, total: branca + acab + esp };
+  }
+
+  renderVals() {
+    const s = this.state;
+    const area = Number(this.props.areaConstruida ?? 258.43);
+    const t = this.totais();
+    const pct = Number(this.props.entradaPct ?? 30);
+    const prazo = Number(this.props.prazoMeses ?? 6);
+    const entrada = t.total * (pct / 100);
+    const saldo = t.total - entrada;
+    const nExtras = EXTRAS.filter(x => s.extras[x.id]).length;
+    const nKits = BASE.length + OPCIONAIS.filter(k => s.ligados[k.id]).length;
+    const consultor = this.props.consultor ?? 'Luara de Oliveira Golim';
+    const validade = Number(this.props.validadeDias ?? 20);
+    const wpp = String(this.props.whatsapp ?? '5514999999999').replace(/\D/g, '');
+    const padraoLabel = (PADROES.find(x => x.id === s.padrao) || PADROES[1]).label;
+
+    const linhas = this.selecionados().map(k => {
+      const v = k.padrao ? this.valorKit(k) : k.valor;
+      return [k.label, BRL.format(v), NUM.format(v / area)];
+    });
+
+    const pesos = [
+      { stage: 'Obra branca', valor: t.branca },
+      { stage: 'Acabamentos', valor: t.acab },
+      { stage: 'Itens especiais', valor: t.esp }
+    ].map(w => ({
+      stage: w.stage,
+      percent: t.total ? Math.round((w.valor / t.total) * 100) : 0,
+      note: (t.total ? Math.round((w.valor / t.total) * 100) : 0) + '%'
+    }));
+
+    return {
+      clienteNome: this.props.clienteNome ?? 'Gabriel',
+      propostaNumero: this.props.propostaNumero ?? '25874 — ED01',
+      franquia: this.props.franquia ?? 'Marília — SP',
+      dataEmissao: this.props.dataEmissao ?? '03/07/2025',
+      consultor,
+      pavimentos: this.props.pavimentos ?? '2',
+      comparadorUrl: this.props.comparadorUrl ?? '#',
+      validadeTexto: validade + ' dias da emissão',
+      validadeAviso: 'Proposta válida por ' + validade + ' dias da data de emissão. Simulação de pré-contrato realizada sem projeto arquitetônico aprovado.',
+      areaFmt: NUM.format(area) + ' m²',
+      prazoFmt: prazo + ' meses',
+
+      pilares: [
+        { icon: 'lock', name: 'Preço fechado e prazo contratual', description: 'O valor e o prazo estão no contrato. Reajuste só nas hipóteses previstas em cláusula, nunca por improviso de canteiro.' },
+        { icon: 'shield', name: 'Auditoria da franqueadora', description: 'A franqueadora audita cada etapa com checklist e evidência fotográfica. O pagamento ao franqueado só é liberado após essa conferência técnica.' },
+        { icon: 'check', name: 'Seguro de obra vigente', description: 'A obra é contratada com apólice ativa durante toda a execução, cobrindo incêndio, vendaval e danos a terceiros.' },
+        { icon: 'calendar', name: 'Acompanhamento por aplicativo', description: 'Diário de obra com foto todo dia no iBUILD One, com avanço físico e financeiro e as evidências de cada etapa.' },
+        { icon: 'users', name: 'Franqueados treinados e auditados', description: 'Você não coloca qualquer um dentro da sua casa. A equipe é treinada no método industrializado e auditada pela franqueadora.' }
+      ],
+
+      indicadores: [
+        { label: 'Prazo médio de execução', ibuild: prazo + ' meses', tradicional: '15 meses' },
+        { label: 'Desperdício médio', ibuild: '3%', tradicional: '25%' },
+        { label: 'Controle de custo', ibuild: 'Fixado em contrato', tradicional: 'Sujeito a variação' },
+        { label: 'Retrabalho', ibuild: 'Quase zero', tradicional: 'Alto índice' },
+        { label: 'Garantia da estrutura', ibuild: '100 anos', tradicional: '50 anos em média' }
+      ],
+
+      etapas: ETAPAS.map((e, i) => ({
+        num: e.num, titulo: e.titulo, peso: e.peso, resumo: e.resumo, itens: e.itens, limites: e.limites,
+        open: s.etapaAberta === i,
+        sinal: s.etapaAberta === i ? '−' : '+',
+        toggle: () => this.setState({ etapaAberta: s.etapaAberta === i ? -1 : i })
+      })),
+
+      kitsBase: BASE.map(k => ({ label: k.label, desc: k.desc, valorFmt: BRL.format(k.valor) })),
+      baseTotalFmt: BRL.format(BASE.reduce((a, k) => a + k.valor, 0)),
+
+      kitsOpcionais: OPCIONAIS.map(k => {
+        const on = !!s.ligados[k.id];
+        const v = this.valorKit(k);
+        return {
+          label: k.label, desc: k.desc, padraoTag: !!k.padrao,
+          trackColor: on ? 'var(--accent)' : 'var(--border-strong)',
+          knobLeft: on ? '21px' : '3px',
+          valorFmt: on ? BRL.format(v) : 'Não incluso',
+          valorColor: on ? 'var(--text-strong)' : 'var(--text-muted)',
+          mostrarBase: on && k.padrao && this.mult !== 1,
+          baseFmt: BRL.format(k.valor),
+          toggle: () => this.setState({ ligados: Object.assign({}, s.ligados, { [k.id]: !on }) })
+        };
+      }),
+
+      extras: EXTRAS.map(x => ({
+        label: x.label, desc: x.desc, on: !!s.extras[x.id],
+        toggle: () => this.setState({ extras: Object.assign({}, s.extras, { [x.id]: !s.extras[x.id] }) })
+      })),
+      extrasResumo: nExtras === 0
+        ? 'Nenhum item marcado. Estes serviços são de responsabilidade do cliente até que sejam orçados.'
+        : nExtras + (nExtras === 1 ? ' item marcado' : ' itens marcados') + ' para orçamento complementar com a unidade franqueada.',
+
+      padroes: PADROES.map(p => {
+        const on = s.padrao === p.id;
+        return {
+          label: p.label,
+          delta: p.mult === 1 ? 'Base da simulação' : (p.mult > 1 ? '+' : '−') + Math.round(Math.abs(p.mult - 1) * 100) + '%',
+          bg: on ? 'var(--ib-gold)' : 'transparent',
+          border: on ? 'var(--ib-gold)' : 'rgba(255,255,255,.18)',
+          color: on ? 'var(--ib-ink)' : 'var(--ib-gray-light)',
+          select: () => this.setState({ padrao: p.id })
+        };
+      }),
+
+      totalFmt: BRL.format(t.total),
+      porM2Fmt: BRL.format(t.total / area),
+      obraBrancaFmt: BRL.format(t.branca),
+      acabamentosFmt: BRL.format(t.acab + t.esp),
+      kitsAtivosFmt: nKits + ' de ' + (BASE.length + OPCIONAIS.length),
+      pesos,
+
+      quantitativos: [
+        { label: 'Área de construção', value: NUM.format(area) + ' m²' },
+        { label: 'Pavimentos', value: this.props.pavimentos ?? '2' },
+        { label: 'Cobertura', value: '143,57 m²' },
+        { label: 'Paredes externas', value: '465,17 m²' },
+        { label: 'Paredes internas', value: '544,20 m²' },
+        { label: 'Pisos e revestimentos', value: '300,29 m²' },
+        { label: 'Forro', value: '258,43 m²' },
+        { label: 'Pintura interna', value: '1.132,33 m²' },
+        { label: 'Pintura externa', value: '465,17 m²' },
+        { label: 'Esquadrias e vidros', value: '54,79 m²' },
+        { label: 'Mármores e granitos', value: '13,92 m²' },
+        { label: 'Portas', value: '19 pç' },
+        { label: 'Água quente e fria — PEX', value: '143,57 m²' },
+        { label: 'Tomadas', value: '62' },
+        { label: 'Interruptores', value: '38' },
+        { label: 'Pontos de luz', value: '23' },
+        { label: 'Banheiros', value: '4' },
+        { label: 'Lavabos', value: '2' }
+      ],
+
+      galeria: [
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/casa-vernom-alphaville-sp/capa.webp', titulo: 'Casa Vernom', meta: 'Alphaville — SP', span: 'span 1', ratio: '3 / 4' },
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/londrina-pr-485m/capa.webp', titulo: 'Residência Londrina', meta: 'Londrina — PR · 485,59 m²', span: 'span 1', ratio: '3 / 4' },
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/piracicaba-sp-371m/capa.webp', titulo: 'Residência Piracicaba', meta: 'Piracicaba — SP · 371,36 m²', span: 'span 1', ratio: '3 / 4' },
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/casacor-2026/capa.webp', titulo: 'Espaço iBUILD Signature', meta: 'CASACOR 2026', span: 'span 1', ratio: '3 / 4' },
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/santana-de-parnaiba-sp-370m/capa.webp', titulo: 'Residência Santana de Parnaíba', meta: 'Santana de Parnaíba — SP · 370 m²', span: 'span 1', ratio: '16 / 9' },
+        { img: 'https://ibuildconstrutora.com.br/assets/imoveis/tres-lagoas-ms-415m/capa.webp', titulo: 'Residência Três Lagoas', meta: 'Três Lagoas — MS · 415,76 m²', span: 'span 1', ratio: '16 / 9' }
+      ],
+
+      meses: ['Mês 1', 'Mês 2', 'Mês 3', 'Mês 4', 'Mês 5', 'Mês 6'],
+      cronograma: CRONOGRAMA.map(c => ({
+        label: c.label,
+        span: (c.ini + 1) + ' / ' + (c.fim + 2),
+        cor: c.grupo === 'acabamento' ? 'var(--accent)' : 'var(--ib-graphite)'
+      })),
+
+      tabelaColunas: ['Kit / etapa', 'Valor', 'R$/m²'],
+      tabelaLinhas: linhas,
+      tabelaTotal: ['Total configurado — padrão ' + padraoLabel, BRL.format(t.total), NUM.format(t.total / area)],
+
+      entradaPctFmt: pct + '%',
+      entradaFmt: BRL.format(entrada),
+      saldoFmt: BRL.format(saldo),
+      medicaoFmt: BRL.format(saldo / prazo),
+
+      seguroItens: [
+        { icon: 'shield', titulo: 'Apólice vigente', desc: 'Ativa durante toda a execução da obra' },
+        { icon: 'lock', titulo: 'Danos a terceiros', desc: 'Responsabilidade civil do canteiro coberta' },
+        { icon: 'check', titulo: 'Incêndio e vendaval', desc: 'Eventos de força maior previstos em apólice' },
+        { icon: 'refresh', titulo: 'Auditoria contratual', desc: 'A franqueadora responde pela conferência de cada etapa' }
+      ],
+
+      faq: FAQ.map((f, i) => ({
+        q: f.q, a: f.a,
+        open: s.faqAberta === i,
+        sinal: s.faqAberta === i ? '−' : '+',
+        toggle: () => this.setState({ faqAberta: s.faqAberta === i ? -1 : i })
+      })),
+
+      numeros: [
+        { value: '400', label: 'Obras realizadas' },
+        { value: '70', label: 'Cidades atendidas' },
+        { value: '200', label: 'Milhões em negócios' },
+        { value: '11', label: 'Anos de experiência' }
+      ],
+
+      passos: [
+        { n: '01', titulo: 'Aceite desta configuração', desc: 'Você confirma o escopo que montou aqui e ele passa a ser a base do contrato.' },
+        { n: '02', titulo: 'Projeto arquitetônico e estudo de solo', desc: 'Com o projeto aprovado e a sondagem em mãos, a engenharia define a fundação definitiva.' },
+        { n: '03', titulo: 'Contrato e entrada', desc: 'Assinatura, pagamento da entrada e mobilização do canteiro pela unidade franqueada.' },
+        { n: '04', titulo: 'Obra acompanhada pelo aplicativo', desc: 'Diário de obra diário, medição no dia 25 e auditoria da franqueadora até a entrega.' }
+      ],
+
+      resumoAceite: nKits + ' kits, padrão ' + padraoLabel + ', ' + NUM.format(area) + ' m² em ' + prazo + ' meses' + (nExtras ? ' · ' + nExtras + ' itens extras a orçar' : ''),
+
+      aceito: s.aceito,
+      assinatura: s.assinatura,
+      aceiteBloqueado: !(s.aceito && s.assinatura.trim().length > 2),
+      botaoAceite: s.confirmado ? 'Aceite registrado' : 'Aceitar proposta',
+      toggleAceite: () => this.setState({ aceito: !s.aceito }),
+      setAssinatura: (e) => this.setState({ assinatura: e.target.value }),
+      confirmarAceite: () => this.setState({ confirmado: true }),
+      gerarPdf: () => window.print(),
+      whatsappUrl: 'https://wa.me/' + wpp + '?text=' + encodeURIComponent('Olá, sou ' + (this.props.clienteNome ?? 'cliente') + ' e quero falar sobre a proposta ' + (this.props.propostaNumero ?? '') + '.')
+    };
+  }
+}
+</script>
+</body>
+</html>

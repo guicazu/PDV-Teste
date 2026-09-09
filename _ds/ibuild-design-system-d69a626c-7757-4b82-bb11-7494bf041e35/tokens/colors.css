@@ -1,0 +1,66 @@
+:root{
+/* --- Neutrals: the brand is built on black, graphite and off-white --- */
+--ib-black:#000000;            /* logotipo, texto de documento */
+--ib-ink:#1d1d1f;              /* preto de tela (site, apresentações) */
+--ib-ink-app:#17140F;          /* preto quente do app (SOE) */
+--ib-graphite:#333333;         /* Grafite Escuro oficial · Pantone Cool Gray 11 C */
+--ib-charcoal:#424245;         /* texto secundário de tela */
+--ib-gray-medium:#B2B2B2;      /* Cinza Médio oficial · Pantone Cool Gray 5 C */
+--ib-gray:#86868b;             /* cinza de tela usado no site (fora do manual) */
+--ib-gray-app:#6b6862;         /* texto de apoio no app */
+--ib-gray-light:#d2d2d7;       /* linhas, texto sobre fundo escuro */
+--ib-border-warm:#E4DFCF;      /* borda do app, quente */
+--ib-off-white:#F1F1F1;        /* Off White oficial · Pantone Cool Gray 1 C */
+--ib-off-white-screen:#f5f5f7; /* fundo de bloco no site (cream) */
+--ib-warm-white:#fbfbfd;       /* fundo de página do site */
+--ib-white:#ffffff;
+--ib-rail:#141310;             /* trilha/navegação escura do app */
+--ib-rail-active:#211E18;
+--ib-surface-2:#FAFAF8;
+
+/* --- Gold: o único dourado do manual; atenção a detalhes, nunca superfície dominante --- */
+--ib-gold:#DCC580;             /* Dourado oficial · Pantone 7509 C · comunicação externa */
+--ib-gold-screen:#C8A96E;      /* legado: valor usado no site V9, fora do manual — não usar em peça nova */
+--ib-gold-light:#d4bc8a;
+--ib-gold-line:#C9AD69;
+--ib-gold-text:#9C824C;        /* dourado legível em texto */
+--ib-gold-deep:#8A6C33;        /* dourado de contraste no app claro */
+
+/* --- Semantic --- */
+--ib-azure:#2A646B;            /* Azure · Pantone 323 PC · SOMENTE comunicação interna, endomarketing e administrativo */
+--ib-good:#3f6b50;--ib-good-bg:#E9F0EA;
+--ib-danger:#96473b;--ib-danger-bg:#F5E9E6;
+--ib-risk:#c83c3c;--ib-safe:#3ca050;
+
+/* --- Semantic aliases: use these in product UI --- */
+--surface-page:var(--ib-warm-white);
+--surface-card:var(--ib-white);
+--surface-sunken:var(--ib-off-white-screen);
+--surface-inverse:var(--ib-ink);
+--surface-rail:var(--ib-rail);
+--text-strong:var(--ib-ink);
+--text-body:var(--ib-charcoal);
+--text-muted:var(--ib-gray);
+--text-inverse:var(--ib-off-white-screen);
+--text-accent:var(--ib-gold-text);
+--accent:var(--ib-gold);
+--accent-quiet:rgba(200,169,110,.08);
+--border-hairline:rgba(0,0,0,.06);
+--border-hairline-inverse:rgba(255,255,255,.07);
+--border-strong:var(--ib-border-warm);
+--focus-ring:var(--ib-gold-line);
+--link:var(--ib-gold-text);
+--link-hover:var(--ib-ink);
+}
+/* App surfaces (SOE / iBUILD One), warm neutral scale */
+:root[data-theme="app-light"]{
+--surface-page:var(--ib-off-white);--surface-card:var(--ib-white);--surface-sunken:var(--ib-surface-2);
+--text-strong:var(--ib-ink-app);--text-body:var(--ib-ink-app);--text-muted:var(--ib-gray-app);
+--border-hairline:var(--ib-border-warm);--border-strong:var(--ib-border-warm);--accent:var(--ib-gold-deep);
+}
+:root[data-theme="app-dark"]{
+--surface-page:#16150F;--surface-card:#1E1C16;--surface-sunken:#24221B;--surface-rail:#0A0906;
+--text-strong:#EDEBE3;--text-body:#EDEBE3;--text-muted:#a5a196;
+--border-hairline:#35322A;--border-strong:#35322A;--accent:#E7CD84;
+--ib-good:#7dab8e;--ib-good-bg:#1E2A22;--ib-danger:#cf8b7d;--ib-danger-bg:#2E211E;
+}

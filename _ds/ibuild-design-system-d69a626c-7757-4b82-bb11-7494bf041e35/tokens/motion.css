@@ -1,0 +1,13 @@
+:root{
+--ease-out-expo:cubic-bezier(0.16,1,0.3,1); /* @kind other */
+--dur-fast:.25s; /* @kind other */
+--dur-base:.4s; /* @kind other */
+--dur-slow:.6s; /* @kind other */
+--dur-reveal:.9s; /* @kind other */
+--dur-media:1.2s; /* @kind other */
+--reveal-shift:40px; /* @kind spacing */
+--hover-lift:-2px; /* @kind spacing */
+--hover-lift-card:-6px; /* @kind spacing */
+--media-zoom:1.05; /* @kind other */
+--media-zoom-strong:1.08; /* @kind other */
+}

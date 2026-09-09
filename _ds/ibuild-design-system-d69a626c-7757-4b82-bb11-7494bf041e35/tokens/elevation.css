@@ -1,0 +1,20 @@
+:root{
+--shadow-none:none;
+--shadow-app:0 1px 2px rgba(20,19,16,.05), 0 10px 28px rgba(20,19,16,.08);
+--shadow-app-dark:0 1px 2px rgba(0,0,0,.4), 0 12px 32px rgba(0,0,0,.5);
+--shadow-card:0 20px 40px rgba(0,0,0,.06);
+--shadow-card-hover:0 24px 64px rgba(0,0,0,.08);
+--shadow-media-hover:0 16px 48px rgba(0,0,0,.25);
+--shadow-cta-hover:0 12px 40px rgba(0,0,0,.3);
+--shadow-cta-light-hover:0 12px 40px rgba(255,255,255,.3);
+--shadow-gold-hover:0 12px 40px rgba(200,169,110,.3);
+
+/* Protection gradients: legibility over photo and video */
+--scrim-hero:linear-gradient(to top left,rgba(0,0,0,.9) 0%,rgba(0,0,0,.5) 50%,transparent 100%); /* @kind other */
+--scrim-side:linear-gradient(to right,rgba(29,29,31,.75) 0%,rgba(29,29,31,.3) 55%,transparent 100%); /* @kind other */
+--scrim-bottom:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.2) 50%,transparent 100%); /* @kind other */
+--scrim-flat:rgba(26,26,26,.82); /* @kind other */
+--glass:rgba(0,0,0,.4); /* @kind other */
+--glass-blur:blur(12px); /* @kind other */
+--noise:url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.7' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E"); /* @kind other */
+}
